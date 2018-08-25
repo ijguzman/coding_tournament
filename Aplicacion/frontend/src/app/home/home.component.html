@@ -1,0 +1,12 @@
+<div class="col-sm-3 col-md-6 col-lg-7">
+    <agm-map [latitude]="lat" [longitude]="lng" >
+      <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>  -->
+      <agm-marker *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng" [iconUrl]="m.iconUrl">
+     </agm-marker>
+    </agm-map>
+</div>
+<div class="col-sm-3 col-md-6 col-lg-3">
+    <button type="submit" class="btn btn-success" routerLink="/reportar-delito">Reportar</button>
+</div>
+
+

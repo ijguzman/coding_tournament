@@ -1,0 +1,33 @@
+<div class="card card-w-title">
+<div class="container">
+  <h1>2. Ingrese la información</h1>
+  <form>
+    <div class="form-group col-xs-4">
+      <br>
+      <label for="descripcion">Descripcion</label>
+      <br>
+      <input type="text" class="form-control" id="descripcion" required>
+      <br>
+      <label for="placas">Placas</label>
+      <br>
+      <input type="text" class="form-control" id="placas">
+      <br>
+      <label for="fecha">Fecha</label>
+      <br>
+      <input type="date" class="form-control" id="fecha">
+      <br>
+      <label for="imagen">Imagen</label>
+      <br>
+      <input type="text" class="form-control" id="imagen">
+      <br>
+      <label for="tipos">Seleccione el tipo de delito</label>
+      <br>
+      <select [(ngModel)]="tipoDel" id="tipos">
+        <option *ngFor="let delito of tiposDelitos">{{delito.Nombre}}</option>
+      </select>
+      <br><br>
+      <button type="submit" class="btn btn-success">Enviar delito</button>
+    </div>
+  </form>
+</div>
+</div>

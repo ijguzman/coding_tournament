@@ -1,7 +1,6 @@
 <div class="col-sm-3 col-md-6 col-lg-7">
     <agm-map [latitude]="lat" [longitude]="lng" >
-      <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>  -->
-      <agm-marker *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng" [iconUrl]="m.iconUrl">
+      <agm-marker *ngFor="let m of lista_delitos" [latitude]="m.Lugar.latitud" [longitude]="m.Lugar.longitud" [iconUrl]="iconUrl" >
      </agm-marker>
     </agm-map>
 </div>

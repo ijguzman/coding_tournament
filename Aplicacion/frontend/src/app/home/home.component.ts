@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { } from '@types/googlemaps';
 import { ActivatedRoute, Router } from "@angular/router/";
-
+import {ServiciosDelito} from '../servicios/ServiciosDelito';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,42 +10,24 @@ import { ActivatedRoute, Router } from "@angular/router/";
 export class HomeComponent implements OnInit {
   lat: number = -0.1681557;
   lng: number = -78.46712440000002;
-  constructor() { }
-  markers: marker[] = [
-    {
-        lat: -0.1681557,
-        lng: -78.46712440000002,
-        label: 'Map A',
-        draggable: true,
-        iconUrl:'http://maps.google.com/mapfiles/ms/icons/green.png'
-    },
-    {
-        lat: 51.373858,
-        lng: 7.215982,
-        label: 'Map B',
-        draggable: false,
-        iconUrl:'http://maps.google.com/mapfiles/ms/icons/red.png'
-    },
-    {
-        lat: 51.723858,
-        lng: 7.895982,
-        label: 'Map C',
-        draggable: true,
-        iconUrl:'http://maps.google.com/mapfiles/ms/icons/yellow.png'
-    }
-];
-
+  lista_delitos:any=[];
+  iconUrl='http://maps.google.com/mapfiles/ms/icons/green.png';
+  constructor(private SDelito:ServiciosDelito) { }
   ngOnInit() {
+
+    this.obtenerDelitos();
   }
-  clickedMarker(marker:marker, index:number)
-  {
-   console.log('Clicked Marker:'+ marker.label+' at index'+index);
+  obtenerDelitos(){
+    this.SDelito.obtenerDelito("").subscribe(
+      (resp:any)=>{           
+        this.lista_delitos=resp;  
+        console.log(this.lista_delitos);
+        
+      },
+      (error)=>{
+
+      }
+
+    );
   }
-}
-interface marker {
-  lat: number;
-  lng: number;
-  label?: string;
-  draggable: boolean;
-  iconUrl?: string;
 }

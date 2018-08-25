@@ -6,27 +6,28 @@
       <br>
       <label for="descripcion">Descripcion</label>
       <br>
-      <input type="text" class="form-control" id="descripcion" required>
+      <input type="text" [(ngModel)]="delito.Descripcion" class="form-control" id="descripcion" name="descripcion" required>
       <br>
       <label for="placas">Placas</label>
       <br>
-      <input type="text" class="form-control" id="placas">
+      <input type="text" [(ngModel)]="delito.Placas" class="form-control" id="placas" name="placas">
       <br>
       <label for="fecha">Fecha</label>
       <br>
-      <input type="date" class="form-control" id="fecha">
+      <input type="date" [(ngModel)]="delito.Fecha" class="form-control" id="fecha" name="fecha">
       <br>
       <label for="imagen">Imagen</label>
       <br>
-      <input type="text" class="form-control" id="imagen">
+      <input type="text" [(ngModel)]="delito.Imagen" class="form-control"  id="imagen" name="imagen">
       <br>
+      
       <label for="tipos">Seleccione el tipo de delito</label>
       <br>
-      <select [(ngModel)]="tipoDel" id="tipos">
+      <select [(ngModel)]="delito.TipoDelito" id="tipos">
         <option *ngFor="let delito of tiposDelitos">{{delito.Nombre}}</option>
       </select>
       <br><br>
-      <button type="submit" class="btn btn-success">Enviar delito</button>
+      <button type="submit" class="btn btn-success" (click)="guardarDelito()">Enviar delito</button>
     </div>
   </form>
 </div>

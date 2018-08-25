@@ -94,7 +94,8 @@ app.get('/Delito',function(req,res){
       });
 
 });
-app.post('/Delito/',function(req,res){
+app.use(bodyParser.json());
+app.put('/Delito/',function(req,res){
     var jsonObj=req.body;
     console.log(jsonObj);
     MongoClient.connect(url, function(err, db) {
